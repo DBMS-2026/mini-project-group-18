@@ -1,0 +1,389 @@
+/* Signup.css - Brighter Noir Theme Matching QueryQuest */
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: #111;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+.signup-container {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #2a251c 0%, #1e1b16 50%, #2a251c 100%);
+  font-family: "Courier Prime", "Courier New", monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* CRT scanlines */
+.signup-container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(255, 255, 255, 0.03) 3px,
+    rgba(255, 255, 255, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Vignette */
+.signup-container::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 85% 85% at 50% 40%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.signup-card {
+  position: relative;
+  z-index: 2;
+  background: #24211c;
+  border: 1px solid #4a4438;
+  padding: 2.5rem;
+  max-width: 450px;
+  width: 90%;
+  margin: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Header Section */
+.signup-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.signup-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid #6a5a30;
+  border-radius: 50%;
+}
+
+.signup-icon svg {
+  width: 32px;
+  height: 32px;
+  color: #d4af37;
+}
+
+.signup-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #f5f0e6;
+  margin-bottom: 0.5rem;
+}
+
+.signup-subtitle {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a8278;
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  margin: 1rem auto 0;
+}
+
+/* Form Styles */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #b8b0a0;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.input-icon svg {
+  width: 16px;
+  height: 16px;
+  color: #6a5a30;
+}
+
+.signup-input {
+  width: 100%;
+  background: #1a1814;
+  border: 1px solid #4a4438;
+  padding: 0.85rem 1rem 0.85rem 2.5rem;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 0.85rem;
+  color: #f5f0e6;
+  transition: all 0.2s ease;
+}
+
+.signup-input:focus {
+  outline: none;
+  border-color: #d4af37;
+  background: #201d18;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+}
+
+.signup-input::placeholder {
+  color: #5a5248;
+  letter-spacing: 0.06em;
+}
+
+/* Error Messages */
+.error-message {
+  color: #d4572a;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid #d4572a;
+}
+
+.password-requirements {
+  margin-top: 0.25rem;
+  padding-left: 0.5rem;
+}
+
+.requirement {
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  color: #6a5a30;
+  margin: 0.2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.requirement.valid {
+  color: #4a9a5a;
+}
+
+.requirement.invalid {
+  color: #8a3a18;
+}
+
+.requirement svg {
+  width: 10px;
+  height: 10px;
+}
+
+/* Submit Button */
+.signup-btn {
+  width: 100%;
+  background: #d4af37;
+  border: 1px solid #d4af37;
+  padding: 1rem;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1a1814;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.signup-btn:hover {
+  background: #f5e6b8;
+  border-color: #f5e6b8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.signup-btn:active {
+  transform: translateY(0);
+}
+
+/* Login Link */
+.login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #4a4438;
+}
+
+.login-link-text {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a8278;
+}
+
+.login-link-btn {
+  background: none;
+  border: none;
+  color: #d4af37;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: color 0.2s;
+}
+
+.login-link-btn:hover {
+  color: #f5e6b8;
+  text-decoration: underline;
+}
+
+/* Back to Home Link */
+.back-home {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 3;
+}
+
+.back-home-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid #6a5a30;
+  color: #b8960c;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-home-btn:hover {
+  border-color: #d4af37;
+  color: #d4af37;
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.back-home-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .signup-card {
+    padding: 1.5rem;
+    margin: 1rem;
+    width: 95%;
+  }
+
+  .signup-title {
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
+  }
+
+  .signup-input {
+    padding: 0.7rem 1rem 0.7rem 2.2rem;
+    font-size: 0.8rem;
+  }
+
+  .signup-btn {
+    padding: 0.85rem;
+    font-size: 0.7rem;
+  }
+
+  .back-home {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .back-home-btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-card {
+    padding: 1.25rem;
+  }
+
+  .signup-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .signup-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .signup-title {
+    font-size: 1rem;
+  }
+
+  .form-label {
+    font-size: 0.55rem;
+  }
+
+  .requirement {
+    font-size: 0.5rem;
+  }
+}
