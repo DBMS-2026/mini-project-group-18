@@ -132,7 +132,7 @@ node app.js
 
 ## 📝 License
 
-This project is for educational purposes as part of a IIITA DBMS course under Prof. Soumyadev Maity.
+This project is for educational purposes as part of a IIITA DBMS course.
 
 ---
 
